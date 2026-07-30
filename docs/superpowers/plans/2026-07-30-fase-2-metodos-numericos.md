@@ -187,7 +187,7 @@
 
 **Referencias:** Wilmott, Howison & Dewynne (1995) caps. 8-9; Duffy (2006) *Finite Difference Methods in Financial Engineering*; Tavella & Randall (2000); Smith (1985) (von Neumann).
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.5 (diferencias finitas I)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.5 (diferencias finitas I)`
 
 ---
 
