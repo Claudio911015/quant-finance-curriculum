@@ -21,7 +21,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | Notebook | Tema | Estado |
 |---|---|---|
 | [00.1-probability-spaces.ipynb](notebooks/00-probabilidad/00.1-probability-spaces.ipynb) | Espacios de probabilidad, variables aleatorias, distribuciones, momentos, convergencia (LLN/CLT con simulación) | ✅ |
-| [00.2-conditional-expectation-martingales.ipynb](notebooks/00-probabilidad/00.2-conditional-expectation-martingales.ipynb) | Esperanza condicional y martingalas en tiempo discreto | — |
+| [00.2-conditional-expectation-martingales.ipynb](notebooks/00-probabilidad/00.2-conditional-expectation-martingales.ipynb) | Esperanza condicional y martingalas en tiempo discreto | ✅ |
 | [00.3-random-number-generation.ipynb](notebooks/00-probabilidad/00.3-random-number-generation.ipynb) | Simulación: generación de aleatorios, método de transformada inversa, Box-Muller, correlación vía Cholesky | — |
 
 ### M1 — Procesos estocásticos
