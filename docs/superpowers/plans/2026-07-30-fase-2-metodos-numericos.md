@@ -90,7 +90,7 @@
 
 **Referencias:** Glasserman (2004) cap. 4; Boyle, Broadie & Glasserman (1997) *Monte Carlo Methods for Security Pricing*; McKay, Beckman & Conover (1979) (LHS).
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.2 (reducción de varianza I)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.2 (reducción de varianza I)`
 
 ---
 
