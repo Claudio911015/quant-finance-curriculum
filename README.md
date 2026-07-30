@@ -41,7 +41,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | [02.1-one-period-model.ipynb](notebooks/02-tiempo-discreto/02.1-one-period-model.ipynb) | Modelo de un periodo: no-arbitraje, medida neutral al riesgo, completitud | ✅ |
 | [02.2-crr-binomial-tree.ipynb](notebooks/02-tiempo-discreto/02.2-crr-binomial-tree.ipynb) | Binomial multi-periodo (CRR): europeas y americanas | ✅ |
 | [02.3-ftap.ipynb](notebooks/02-tiempo-discreto/02.3-ftap.ipynb) | Teoremas fundamentales del asset pricing | ✅ |
-| [02.4-binomial-to-black-scholes.ipynb](notebooks/02-tiempo-discreto/02.4-binomial-to-black-scholes.ipynb) | Convergencia binomial → Black-Scholes | — |
+| [02.4-binomial-to-black-scholes.ipynb](notebooks/02-tiempo-discreto/02.4-binomial-to-black-scholes.ipynb) | Convergencia binomial → Black-Scholes | ✅ |
 
 ### M3 — Derivados en tiempo continuo
 
