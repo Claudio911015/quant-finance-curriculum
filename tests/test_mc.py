@@ -1,7 +1,8 @@
 import numpy as np
 import pytest
+from scipy.stats import qmc
 
-from qflib.mc import gbm_paths, ou_paths, cir_paths
+from qflib.mc import gbm_paths, ou_paths, cir_paths, mc_estimate, normal_sampler
 
 
 # --- shapes ---
@@ -93,3 +94,85 @@ def test_cir_paths_feller_ok_mostly_positive():
     assert np.all(paths >= 0.0)
     # under Feller, essentially never truncated to exactly 0
     assert np.mean(paths == 0.0) < 0.001
+
+
+# --- mc_estimate ---
+
+def test_mc_estimate_matches_hand_computed_stats():
+    payoffs = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+    mean, se, (lo, hi) = mc_estimate(payoffs, confidence=0.95)
+    n = payoffs.size
+    expected_mean = payoffs.mean()
+    expected_se = payoffs.std(ddof=1) / np.sqrt(n)
+    assert mean == pytest.approx(expected_mean)
+    assert se == pytest.approx(expected_se)
+    assert lo == pytest.approx(expected_mean - 1.959963984540054 * expected_se)
+    assert hi == pytest.approx(expected_mean + 1.959963984540054 * expected_se)
+    assert lo < mean < hi
+
+
+def test_mc_estimate_narrower_ci_for_lower_confidence():
+    rng = np.random.default_rng(0)
+    payoffs = rng.standard_normal(1000)
+    _, _, (lo95, hi95) = mc_estimate(payoffs, confidence=0.95)
+    _, _, (lo80, hi80) = mc_estimate(payoffs, confidence=0.80)
+    assert (hi80 - lo80) < (hi95 - lo95)
+
+
+def test_mc_estimate_ci_coverage():
+    # 2000 replicas of n=200 iid N(0,1): the nominal-95% CI should contain the
+    # true mean (0) in roughly 95% of replicas (Monte Carlo error on the estimate
+    # itself is sqrt(0.95*0.05/2000) ~ 0.005, so [0.93, 0.97] is a ~4-sigma band).
+    rng = np.random.default_rng(1)
+    hits = 0
+    reps = 2000
+    for _ in range(reps):
+        sample = rng.standard_normal(200)
+        _, _, (lo, hi) = mc_estimate(sample, confidence=0.95)
+        hits += int(lo <= 0.0 <= hi)
+    coverage = hits / reps
+    assert 0.93 <= coverage <= 0.97
+
+
+# --- normal_sampler ---
+
+def test_normal_sampler_pseudo_shape():
+    rng = np.random.default_rng(0)
+    Z = normal_sampler(1000, 4, rng, method="pseudo")
+    assert Z.shape == (1000, 4)
+
+
+def test_normal_sampler_antithetic_sums_to_zero_per_column():
+    rng = np.random.default_rng(0)
+    Z = normal_sampler(2000, 3, rng, method="pseudo", antithetic=True)
+    assert Z.shape == (2000, 3)
+    np.testing.assert_allclose(Z.sum(axis=0), 0.0, atol=1e-10)
+
+
+def test_normal_sampler_antithetic_requires_even_n():
+    rng = np.random.default_rng(0)
+    with pytest.raises(ValueError):
+        normal_sampler(1001, 2, rng, method="pseudo", antithetic=True)
+
+
+def test_normal_sampler_sobol_no_scramble_matches_scipy():
+    from scipy.stats import norm
+    rng = np.random.default_rng(0)
+    Z = normal_sampler(64, 2, rng, method="sobol", scramble=False)
+    ref = norm.ppf(qmc.Sobol(d=2, scramble=False, seed=None).random(64))
+    np.testing.assert_allclose(Z, ref)
+
+
+def test_normal_sampler_sobol_scramble_changes_with_seed_but_stays_standardized():
+    Z1 = normal_sampler(2**14, 1, np.random.default_rng(1), method="sobol", scramble=True)
+    Z2 = normal_sampler(2**14, 1, np.random.default_rng(2), method="sobol", scramble=True)
+    assert not np.allclose(Z1, Z2)
+    for Z in (Z1, Z2):
+        assert abs(Z.mean()) < 0.05
+        assert abs(Z.var(ddof=1) - 1.0) < 0.05
+
+
+def test_normal_sampler_unknown_method_raises():
+    rng = np.random.default_rng(0)
+    with pytest.raises(ValueError):
+        normal_sampler(100, 1, rng, method="bogus")

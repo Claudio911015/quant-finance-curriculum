@@ -1,9 +1,17 @@
-"""Monte Carlo path generators for canonical SDEs (GBM, OU, CIR).
+"""Monte Carlo path generators and estimator helpers.
 
-See notebooks/01-procesos-estocasticos/01.4-sdes-simulation.ipynb for the
+Path generators for canonical SDEs (GBM, OU, CIR): see
+notebooks/01-procesos-estocasticos/01.4-sdes-simulation.ipynb for the
 derivations behind each scheme.
+
+Estimator helpers (mc_estimate, normal_sampler): see
+notebooks/04-metodos-numericos/04.1-monte-carlo-fundamentals.ipynb (mean/SE/CI)
+and 04.3-variance-reduction-ii.ipynb (antithetic/Sobol sampling) for the
+derivations. Reused from M6 onward wherever a plain MC price and its
+confidence interval are needed.
 """
 import numpy as np
+from scipy.stats import norm, qmc
 
 
 def gbm_paths(S0, mu, sigma, T, n_steps, n_paths, rng):
@@ -65,3 +73,50 @@ def cir_paths(x0, kappa, theta, sigma, T, n_steps, n_paths, rng):
         x_pos = np.maximum(paths[:, k], 0.0)
         paths[:, k + 1] = paths[:, k] + kappa * (theta - x_pos) * h + sigma * np.sqrt(x_pos * h) * Z[:, k]
     return np.maximum(paths, 0.0)
+
+
+def mc_estimate(payoffs, confidence=0.95):
+    """Mean, standard error and confidence interval for an array of iid discounted payoffs.
+
+    Returns (mean, standard_error, (ci_low, ci_high)), using the asymptotic
+    normal approximation of the CLT (see 04.1 Section 1).
+    """
+    payoffs = np.asarray(payoffs, dtype=float)
+    n = payoffs.size
+    mean = payoffs.mean()
+    se = payoffs.std(ddof=1) / np.sqrt(n)
+    z = norm.ppf(0.5 + confidence / 2.0)
+    return mean, se, (mean - z * se, mean + z * se)
+
+
+def normal_sampler(n_paths, dim, rng, method="pseudo", antithetic=False, scramble=True):
+    """Return an (n_paths, dim) array of standard normal draws.
+
+    method: "pseudo" uses rng.standard_normal; "sobol" uses a scrambled Sobol'
+    sequence (scipy.stats.qmc.Sobol) mapped through the inverse normal CDF
+    (see 04.3 Section 3).
+
+    antithetic=True returns n_paths draws built as n_paths/2 draws and their
+    negatives (requires n_paths even); only supported with method="pseudo".
+
+    scramble applies only to method="sobol": scrambling (Owen) makes the
+    sequence honest for confidence intervals across independent replicas
+    (a fresh `rng` draws the Sobol seed, so different rng -> different
+    scrambling); scramble=False reproduces the unscrambled scipy sequence.
+    """
+    if antithetic:
+        if method != "pseudo":
+            raise ValueError("antithetic=True is only supported with method='pseudo'")
+        if n_paths % 2 != 0:
+            raise ValueError(f"antithetic=True requires an even n_paths, got {n_paths}")
+        half = rng.standard_normal(size=(n_paths // 2, dim))
+        return np.concatenate([half, -half], axis=0)
+
+    if method == "pseudo":
+        return rng.standard_normal(size=(n_paths, dim))
+    elif method == "sobol":
+        seed = int(rng.integers(0, 2**31 - 1)) if scramble else None
+        sampler = qmc.Sobol(d=dim, scramble=scramble, seed=seed)
+        return norm.ppf(sampler.random(n_paths))
+    else:
+        raise ValueError(f"unknown method: {method!r}")
