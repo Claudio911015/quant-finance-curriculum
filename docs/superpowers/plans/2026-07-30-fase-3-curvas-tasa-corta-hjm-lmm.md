@@ -72,10 +72,10 @@
 
 **Referencias:** Hull, J.C. *Options, Futures, and Other Derivatives*, 10th ed., caps. 4, 6, 33 (convexidad futuros-forward); Brigo & Mercurio (2006) cap. 1 (convenciones); ISDA 2006 Definitions (day count, business day conventions, referencia).
 
-- [ ] Escribir notebook (nbformat) según la plantilla y las secciones de arriba
-- [ ] Ejecutar in-place limpio; los asserts pasan
-- [ ] READMEs actualizados
-- [ ] Commit `feat: notebook 5.1 (instrumentos y convenciones)`
+- [x] Escribir notebook (nbformat) según la plantilla y las secciones de arriba
+- [x] Ejecutar in-place limpio; los asserts pasan
+- [x] READMEs actualizados
+- [x] Commit `feat: notebook 5.1 (instrumentos y convenciones)`
 
 ---
 
