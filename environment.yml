@@ -1,0 +1,14 @@
+name: qfcurriculum
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - jupyter
+  - pytest
+  - pip
+  - pip:
+      - QuantLib
