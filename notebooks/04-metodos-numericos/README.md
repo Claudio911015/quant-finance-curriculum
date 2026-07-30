@@ -7,6 +7,6 @@
 | [04.3-variance-reduction-ii.ipynb](04.3-variance-reduction-ii.ipynb) | Reducción de varianza II: muestreo de importancia (deep OTM), QMC con secuencias de Sobol | ✅ |
 | [04.4-longstaff-schwartz.ipynb](04.4-longstaff-schwartz.ipynb) | Longstaff-Schwartz para americanas/bermudas | ✅ |
 | [04.5-finite-differences-i.ipynb](04.5-finite-differences-i.ipynb) | Diferencias finitas I: esquemas forward (explícito), backward (implícito), θ-scheme; estabilidad y convergencia (von Neumann, CFL) | ✅ |
-| 04.6-finite-differences-ii.ipynb | Diferencias finitas II: Crank-Nicolson, condiciones de frontera, grids no uniformes, barreras y americanas por PSOR | — |
+| [04.6-finite-differences-ii.ipynb](04.6-finite-differences-ii.ipynb) | Diferencias finitas II: Crank-Nicolson, condiciones de frontera, grids no uniformes, barreras y americanas por PSOR | ✅ |
 
 **Prerequisitos:** M0, M1, M3.

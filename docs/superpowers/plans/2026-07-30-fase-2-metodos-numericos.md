@@ -209,7 +209,7 @@
 
 **Referencias:** Rannacher (1984); Giles & Carter (2006) *Convergence Analysis of Crank-Nicolson and Rannacher Time-Marching*; Tavella & Randall (2000) caps. 4-6; Wilmott, Howison & Dewynne (1995) cap. 9 (PSOR); Duffy (2006).
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.6 (diferencias finitas II)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.6 (diferencias finitas II)`
 
 ---
 
