@@ -117,11 +117,11 @@
 
 **Validación:** cada cotización sintética se reprecia con la curva bootstrapeada a `atol=1e-10` (por construcción del algoritmo); la curva bootstrapeada vs `ql.PiecewiseLogLinearDiscount` construida con las mismas cotizaciones (mismos `ql.DepositRateHelper`/`ql.SwapRateHelper`), discount factors en los nodos, `atol=1e-8`; error entre nodos vs la curva Nelson-Siegel verdadera, `rtol=1e-3` (hay error de interpolación real entre nodos, no debe forzarse a cero).
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.2 (bootstrapping de curva única)`
-- [ ] Tests primero en `tests/test_curves.py`: `DiscountCurve` con 2 nodos conocidos reproduce `df`/`zero_rate`/`forward_rate` a mano (atol 1e-12); `df(t)` en un nodo exacto iguala el discount factor dado; error si `times` no es estrictamente creciente o no empieza `>0`
-- [ ] Tests en `tests/test_market.py`: `par_swap_rate` sobre una curva plana (df exponencial con tasa constante `y`) da par rate `\approx y` (con compounding anual, rtol 1e-6 para tenors largos donde la aproximación discreta-continua converge)
-- [ ] Implementar `qflib/curves.py` y la función en `qflib/market.py`; `pytest tests/ -v` verde
-- [ ] Commit separado `feat: qflib.curves (DiscountCurve) y qflib.market.par_swap_rate`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.2 (bootstrapping de curva única)`
+- [x] Tests primero en `tests/test_curves.py`: `DiscountCurve` con 2 nodos conocidos reproduce `df`/`zero_rate`/`forward_rate` a mano (atol 1e-12); `df(t)` en un nodo exacto iguala el discount factor dado; error si `times` no es estrictamente creciente o no empieza `>0`
+- [x] Tests en `tests/test_market.py`: `par_swap_rate` sobre una curva plana (df exponencial con tasa constante `y`) da par rate `\approx y` (con compounding anual, rtol 1e-6 para tenors largos donde la aproximación discreta-continua converge)
+- [x] Implementar `qflib/curves.py` y la función en `qflib/market.py`; `pytest tests/ -v` verde
+- [x] Commit separado `feat: qflib.curves (DiscountCurve) y qflib.market.par_swap_rate`
 
 ---
 
