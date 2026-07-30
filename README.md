@@ -10,6 +10,8 @@ conda activate qfcurriculum
 jupyter lab
 ```
 
+Este procedimiento también instala `qflib` en modo editable. Para actualizar un ambiente existente, ejecutar `conda env update -f environment.yml --prune`.
+
 ## Currículum
 
 13 módulos, progresión lineal (cada módulo asume los anteriores).
