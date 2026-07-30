@@ -174,7 +174,7 @@
 **Validación:** asserts: (2) los tres precios dentro de 3 SE / atol 1e-10 el analítico; (3) atol 1e-10; QuantLib `BlackCalculator` para Black-76 atol 1e-10.
 **Referencias:** Geman-El Karoui-Rochet (1995); Shreve II cap. 9; Brigo-Mercurio cap. 2.
 
-- [ ] Escribir / ejecutar / READMEs / commit `feat: notebook 3.5 (forward measure y numerarios)`
+- [x] Escribir / ejecutar / READMEs / commit `feat: notebook 3.5 (forward measure y numerarios)`
 
 ---
 

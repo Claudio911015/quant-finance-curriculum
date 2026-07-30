@@ -51,7 +51,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | [03.2-greeks-delta-hedging.ipynb](notebooks/03-tiempo-continuo/03.2-greeks-delta-hedging.ipynb) | Griegas y delta hedging: P&L simulado de un hedge discreto | ✅ |
 | [03.3-exotic-options.ipynb](notebooks/03-tiempo-continuo/03.3-exotic-options.ipynb) | Exóticas: digitales, barreras, asiáticas, lookback | ✅ |
 | [03.4-american-options.ipynb](notebooks/03-tiempo-continuo/03.4-american-options.ipynb) | Americanas: free boundary, aproximaciones analíticas | ✅ |
-| [03.5-forward-measure-numeraires.ipynb](notebooks/03-tiempo-continuo/03.5-forward-measure-numeraires.ipynb) | Forward measure y pricing bajo distintos numerarios | — |
+| [03.5-forward-measure-numeraires.ipynb](notebooks/03-tiempo-continuo/03.5-forward-measure-numeraires.ipynb) | Forward measure y pricing bajo distintos numerarios | ✅ |
 
 ### M4 — Métodos numéricos
 
