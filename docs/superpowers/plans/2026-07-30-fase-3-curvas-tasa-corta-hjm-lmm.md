@@ -169,7 +169,7 @@
 
 **Referencias:** Hagan, P.S. & West, G. (2006). *Interpolation Methods for Curve Construction*. Applied Mathematical Finance, 13(2), 89-129.; Hagan & West (2008) *Methods for Constructing a Yield Curve*, WILMOTT Magazine.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.4 (métodos de interpolación)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.4 (métodos de interpolación)`
 
 ---
 
