@@ -49,7 +49,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 |---|---|---|
 | [03.1-black-scholes.ipynb](notebooks/03-tiempo-continuo/03.1-black-scholes.ipynb) | Black-Scholes: derivación por réplica (PDE) y por martingalas | ✅ |
 | [03.2-greeks-delta-hedging.ipynb](notebooks/03-tiempo-continuo/03.2-greeks-delta-hedging.ipynb) | Griegas y delta hedging: P&L simulado de un hedge discreto | ✅ |
-| [03.3-exotics-digitals-barriers-asians-lookbacks.ipynb](notebooks/03-tiempo-continuo/03.3-exotics-digitals-barriers-asians-lookbacks.ipynb) | Exóticas: digitales, barreras, asiáticas, lookback | — |
+| [03.3-exotic-options.ipynb](notebooks/03-tiempo-continuo/03.3-exotic-options.ipynb) | Exóticas: digitales, barreras, asiáticas, lookback | ✅ |
 | [03.4-american-options-free-boundary.ipynb](notebooks/03-tiempo-continuo/03.4-american-options-free-boundary.ipynb) | Americanas: free boundary, aproximaciones analíticas | — |
 | [03.5-forward-measure-numeraires.ipynb](notebooks/03-tiempo-continuo/03.5-forward-measure-numeraires.ipynb) | Forward measure y pricing bajo distintos numerarios | — |
 

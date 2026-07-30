@@ -156,7 +156,7 @@
 **Validación:** vs QuantLib: `CashOrNothingPayoff` + AnalyticEuropeanEngine, `AnalyticBarrierEngine`, `AnalyticContinuousGeometricAveragePriceAsianEngine`, `AnalyticContinuousFloatingLookbackEngine` — atol 1e-8 en analíticos; MC dentro de 3 SE del analítico correspondiente (con corrección BGK para barrera).
 **Referencias:** Reiner-Rubinstein (1991); Kemna-Vorst (1990); Broadie-Glasserman-Kou (1997); Hull caps. 26.
 
-- [ ] Escribir / ejecutar / READMEs / commit `feat: notebook 3.3 (opciones exóticas)`
+- [x] Escribir / ejecutar / READMEs / commit `feat: notebook 3.3 (opciones exóticas)`
 
 ### Task 15: Notebook 3.4 — `03.4-american-options.ipynb`
 
