@@ -143,7 +143,7 @@
 
 **Referencias:** Hull, J.C. cap. 9 (OIS discounting); Mercurio, F. (2010) *A LIBOR Market Model with Stochastic Basis*, o su versión determinista más simple: Ametrano & Bianchetti (2009) *Bootstrapping the Illiquidity*.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.3 (multi-curva y OIS discounting)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.3 (multi-curva y OIS discounting)`
 
 ---
 
