@@ -25,3 +25,18 @@ def svi_total_variance(k, a=0.03, b=0.12, rho=-0.4, m=0.0, sigma=0.25):
     k = np.asarray(k, dtype=float)
     w = a + b * (rho * (k - m) + np.sqrt((k - m) ** 2 + sigma**2))
     return w if w.shape else float(w)
+
+
+def par_swap_rate(curve_fn, payment_times):
+    """Par fixed rate of a vanilla swap (single-curve assumption).
+
+    curve_fn: callable times -> discount factors (e.g. nelson_siegel_df or a
+    DiscountCurve.df bound method). payment_times: increasing array of fixed-leg
+    payment times (years from today). Floating leg (par, no spread) values at
+    1 - df(payment_times[-1]); the par rate is that over the annuity.
+    """
+    payment_times = np.asarray(payment_times, dtype=float)
+    dfs = curve_fn(payment_times)
+    tau = np.diff(np.concatenate([[0.0], payment_times]))
+    annuity = np.sum(tau * dfs)
+    return (1.0 - dfs[-1]) / annuity
