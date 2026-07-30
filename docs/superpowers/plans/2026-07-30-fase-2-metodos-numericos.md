@@ -162,7 +162,7 @@
 
 **Referencias:** Longstaff & Schwartz (2001); Tsitsiklis & Van Roy (2001); Andersen & Broadie (2004) (cotas duales); Glasserman (2004) cap. 8.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.4 (Longstaff-Schwartz)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.4 (Longstaff-Schwartz)`
 - [ ] Tests primero en `tests/test_lsm.py`: con una sola fecha de ejercicio el resultado iguala el payoff descontado europeo simulado (atol 1e-12 sobre trayectorias fijas); sobre trayectorias deterministas de 2 estados construidas a mano, el precio iguala el valor de Snell calculado a mano (atol 1e-12); `itm_only=False` y `True` coinciden cuando todas las trayectorias están ITM; error si `discount_factors` no tiene largo `n_dates`
 - [ ] Implementar `qflib/lsm.py`; `pytest tests/ -v` verde
 - [ ] Commit separado `feat: qflib.lsm (Longstaff-Schwartz reusable en M7 y M11)`
