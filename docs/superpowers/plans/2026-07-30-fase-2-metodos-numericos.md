@@ -215,7 +215,7 @@
 
 ## Cierre de fase
 
-- [ ] Re-ejecutar **todos** los notebooks del repo desde cero a un directorio temporal (no in-place) y confirmar 23/23 OK — el gate que en la Fase 1 fue la única verificación real de reproducibilidad
-- [ ] `conda run -n qfcurriculum pytest tests/ -v` verde (64 tests actuales + los nuevos de `mc` y `lsm`)
-- [ ] Confirmar que todas las filas de M0–M4 están en ✅ en `README.md` y en los READMEs de módulo
-- [ ] Push final y continuar con el plan de Fase 3 (M5–M7)
+- [x] Re-ejecutar **todos** los notebooks del repo desde cero a un directorio temporal (no in-place) y confirmar 23/23 OK — el gate que en la Fase 1 fue la única verificación real de reproducibilidad
+- [x] `conda run -n qfcurriculum pytest tests/ -v` verde (64 tests actuales + los nuevos de `mc` y `lsm`)
+- [x] Confirmar que todas las filas de M0–M4 están en ✅ en `README.md` y en los READMEs de módulo
+- [x] Push final y continuar con el plan de Fase 3 (M5–M7)
