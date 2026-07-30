@@ -32,7 +32,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | [01.2-brownian-motion.ipynb](notebooks/01-procesos-estocasticos/01.2-brownian-motion.ipynb) | Movimiento browniano: construcción, propiedades, simulación | ✅ |
 | [01.3-ito-integral-lemma.ipynb](notebooks/01-procesos-estocasticos/01.3-ito-integral-lemma.ipynb) | Integral de Itô y lema de Itô | ✅ |
 | [01.4-sdes-simulation.ipynb](notebooks/01-procesos-estocasticos/01.4-sdes-simulation.ipynb) | SDEs: GBM, OU, CIR — soluciones exactas, Euler-Maruyama, Milstein, convergencia fuerte/débil | ✅ |
-| [01.5-girsanov-change-of-numeraire.ipynb](notebooks/01-procesos-estocasticos/01.5-girsanov-change-of-numeraire.ipynb) | Girsanov y cambio de numerario | — |
+| [01.5-girsanov-numeraire.ipynb](notebooks/01-procesos-estocasticos/01.5-girsanov-numeraire.ipynb) | Girsanov y cambio de numerario | ✅ |
 
 ### M2 — Derivados en tiempo discreto
 
