@@ -124,10 +124,10 @@
 
 **Referencias:** Glasserman (2004) caps. 4.6 y 5; Glasserman, Heidelberger & Shahabuddin (1999); Owen (1997) *Scrambled Net Variance*; Caflisch, Morokoff & Owen (1997) (dimensión efectiva).
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.3 (reducción de varianza II)`
-- [ ] Tests primero en `tests/test_mc.py`: `mc_estimate` sobre una muestra determinista conocida (media y SE calculados a mano); cobertura del IC (`0.95` nominal sobre 2000 réplicas de `n=200`, esperar `[0.93,0.97]`); `normal_sampler` con `antithetic=True` suma exactamente 0 por columna y tiene la forma pedida; `method="sobol"` con `scramble=False` reproduce la secuencia de `scipy` y con `scramble=True` cambia con el seed pero mantiene media `≈0` y varianza `≈1` (atol 0.05 con `n=2^14`); error si `antithetic=True` con `n_paths` impar
-- [ ] Implementar en `qflib/mc.py`; `conda run -n qfcurriculum pytest tests/ -v` verde
-- [ ] Commit separado `feat: qflib.mc (mc_estimate y normal_sampler para QMC/antitéticas)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 4.3 (reducción de varianza II)`
+- [x] Tests primero en `tests/test_mc.py`: `mc_estimate` sobre una muestra determinista conocida (media y SE calculados a mano); cobertura del IC (`0.95` nominal sobre 2000 réplicas de `n=200`, esperar `[0.93,0.97]`); `normal_sampler` con `antithetic=True` suma exactamente 0 por columna y tiene la forma pedida; `method="sobol"` con `scramble=False` reproduce la secuencia de `scipy` y con `scramble=True` cambia con el seed pero mantiene media `≈0` y varianza `≈1` (atol 0.05 con `n=2^14`); error si `antithetic=True` con `n_paths` impar
+- [x] Implementar en `qflib/mc.py`; `conda run -n qfcurriculum pytest tests/ -v` verde
+- [x] Commit separado `feat: qflib.mc (mc_estimate y normal_sampler para QMC/antitéticas)`
 
 ---
 
