@@ -165,7 +165,7 @@
 **Validación:** binomial n=2000 vs QuantLib `BinomialVanillaEngine` atol 1e-4; BAW propio vs QuantLib `BaroneAdesiWhaleyApproximationEngine` atol 1e-6; perpetuo vs límite binomial rtol 1e-2.
 **Referencias:** Barone-Adesi & Whaley (1987); Shreve I cap. 4; Wilmott.
 
-- [ ] Escribir / ejecutar / READMEs / commit `feat: notebook 3.4 (opciones americanas)`
+- [x] Escribir / ejecutar / READMEs / commit `feat: notebook 3.4 (opciones americanas)`
 
 ### Task 16: Notebook 3.5 — `03.5-forward-measure-numeraires.ipynb`
 
