@@ -65,10 +65,10 @@
 
 **Referencias:** Glasserman (2004) caps. 1, 6; Kloeden & Platen (1992) caps. 9-10; Higham (2001) *An Algorithmic Introduction to Numerical Simulation of SDEs*.
 
-- [ ] Escribir notebook (nbformat) según la plantilla y las secciones de arriba
-- [ ] Ejecutar in-place limpio; los 6 asserts pasan
-- [ ] READMEs actualizados (añadir columna Estado al README del módulo)
-- [ ] Commit `feat: notebook 4.1 (fundamentos de Monte Carlo)`
+- [x] Escribir notebook (nbformat) según la plantilla y las secciones de arriba
+- [x] Ejecutar in-place limpio; los 6 asserts pasan
+- [x] READMEs actualizados (añadir columna Estado al README del módulo)
+- [x] Commit `feat: notebook 4.1 (fundamentos de Monte Carlo)`
 
 ---
 
