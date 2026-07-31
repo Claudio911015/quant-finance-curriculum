@@ -381,7 +381,7 @@
 
 **Referencias:** Longstaff, F.A. & Schwartz, E.S. (2001) (reusado de 4.4); Andersen, L. (2000). *A Simple Approach to the Pricing of Bermudan Swaptions in the Multifactor LIBOR Market Model*. Journal of Computational Finance, 3(2), 5-32.; Brigo & Mercurio (2006) cap. 6, §6.7.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.4 (simulación LMM y Bermudan swaption)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.4 (simulación LMM y Bermudan swaption)`
 
 ---
 
