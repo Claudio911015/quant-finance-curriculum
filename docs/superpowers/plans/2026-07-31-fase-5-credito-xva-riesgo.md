@@ -64,7 +64,7 @@
 
 **Referencias:** O'Kane, D., Turnbull, S. (2003). *Valuation of Credit Default Swaps*. Lehman Brothers Quantitative Credit Research. Brigo, D., Mercurio, F. (2006), cap. 21-22 (crédito).
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 10.2 (CDS: pricing y bootstrap de curva de crédito)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 10.2 (CDS: pricing y bootstrap de curva de crédito)`
 
 ---
 
