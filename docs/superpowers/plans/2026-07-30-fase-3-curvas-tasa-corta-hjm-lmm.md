@@ -315,7 +315,7 @@
 
 **Referencias:** Heath, D., Jarrow, R. & Morton, A. (1992). *Bond Pricing and the Term Structure of Interest Rates: A New Methodology*. Econometrica, 60(1), 77-105.; Brigo & Mercurio (2006) cap. 5.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.1 (marco HJM y condición de drift)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.1 (marco HJM y condición de drift)`
 
 ---
 
