@@ -130,7 +130,7 @@
 
 **Referencias:** Gregory, J. (2015), cap. 5-8 (CVA/DVA), cap. 17 (wrong-way risk). Brigo, D., Pallavicini, A., Papatheodorou, V. (2011). *Arbitrage-Free Valuation of Bilateral Counterparty Risk for Interest-Rate Products: Impact of Volatilities and Correlations*.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.2 (CVA/DVA y wrong-way risk)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.2 (CVA/DVA y wrong-way risk)`
 
 ---
 
