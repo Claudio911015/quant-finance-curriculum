@@ -96,7 +96,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 
 | Notebook | Tema | Estado |
 |---|---|---|
-| [08.1-implied-vol-surface-svi.ipynb](notebooks/08-volatilidad/08.1-implied-vol-surface-svi.ipynb) | Superficie implícita: arbitraje estático (butterfly/calendar), parametrización SVI | — |
+| [08.1-implied-vol-surface-svi.ipynb](notebooks/08-volatilidad/08.1-implied-vol-surface-svi.ipynb) | Superficie implícita: arbitraje estático (butterfly/calendar), parametrización SVI | ✅ |
 | [08.2-local-volatility-dupire.ipynb](notebooks/08-volatilidad/08.2-local-volatility-dupire.ipynb) | Volatilidad local: Dupire | — |
 | [08.3-heston-model.ipynb](notebooks/08-volatilidad/08.3-heston-model.ipynb) | Heston: pricing por función característica, calibración a superficie | — |
 | [08.4-sabr-model.ipynb](notebooks/08-volatilidad/08.4-sabr-model.ipynb) | SABR: aproximación de Hagan, calibración al smile de swaptions | — |
