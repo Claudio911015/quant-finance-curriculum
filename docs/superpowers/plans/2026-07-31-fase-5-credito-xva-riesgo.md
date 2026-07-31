@@ -86,7 +86,7 @@
 
 **Referencias:** Li, D. (2000). *On Default Correlation: A Copula Function Approach*. Journal of Fixed Income, 9(4), 43-54. Schönbucher, P., Schubert, D. (2001). *Copula-dependent default risk in intensity models*.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 10.3 (cópulas y correlación de default)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 10.3 (cópulas y correlación de default)`
 
 ---
 

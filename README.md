@@ -116,7 +116,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 |---|---|---|
 | [10.1-merton-intensity-models.ipynb](notebooks/10-credito/10.1-merton-intensity-models.ipynb) | Merton estructural y modelos de intensidad | ✅ |
 | [10.2-cds-pricing-bootstrap.ipynb](notebooks/10-credito/10.2-cds-pricing-bootstrap.ipynb) | CDS: pricing y bootstrap de curva de crédito | ✅ |
-| [10.3-copulas-default-correlation.ipynb](notebooks/10-credito/10.3-copulas-default-correlation.ipynb) | Cópulas y correlación de default | — |
+| [10.3-copulas-default-correlation.ipynb](notebooks/10-credito/10.3-copulas-default-correlation.ipynb) | Cópulas y correlación de default | ✅ |
 
 ### M11 — XVAs
 
