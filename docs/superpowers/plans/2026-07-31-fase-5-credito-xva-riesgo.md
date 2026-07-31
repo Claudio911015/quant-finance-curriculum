@@ -108,7 +108,7 @@
 
 **Referencias:** Gregory, J. (2015). *The xVA Challenge*, cap. 3-4. Green, A. (2015). *XVA: Credit, Funding and Capital Valuation Adjustments*, cap. 4.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.1 (exposiciones: EE/EPE/PFE)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.1 (exposiciones: EE/EPE/PFE)`
 
 ---
 
