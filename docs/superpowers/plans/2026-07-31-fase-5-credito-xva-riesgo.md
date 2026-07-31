@@ -152,7 +152,7 @@
 
 **Referencias:** Green, A. (2015), cap. 11-14 (FVA, ColVA, MVA, KVA). Albanese, C., Andersen, L., Iabichino, S. (2015). *FVA: a real option*. Risk.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.3 (FVA, ColVA, MVA/KVA)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.3 (FVA, ColVA, MVA/KVA)`
 
 ---
 
