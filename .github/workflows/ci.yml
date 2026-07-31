@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  tests:
+    name: pytest (qflib)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          pip install numpy scipy pandas matplotlib QuantLib pytest
+          pip install -e .
+      - name: Run test suite
+        run: pytest tests/ -v
+
+  notebook-smoke:
+    name: notebook smoke test (nbconvert --execute)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          pip install numpy scipy pandas matplotlib QuantLib jupyter nbconvert ipykernel
+          pip install -e .
+      # Subconjunto representativo (uno por fase, ejecucion rapida); cada notebook
+      # trae sus propios asserts de validacion, asi que ejecutar = validar.
+      - name: Execute smoke-test notebooks
+        run: |
+          for nb in \
+            notebooks/00-probabilidad/00.2-conditional-expectation-martingales.ipynb \
+            notebooks/02-tiempo-discreto/02.1-one-period-model.ipynb \
+            notebooks/05-curvas/05.2-single-curve-bootstrapping.ipynb \
+            notebooks/06-tasa-corta/06.3-cir-cir-plus-plus.ipynb \
+            notebooks/08-volatilidad/08.4-sabr-model.ipynb \
+            notebooks/10-credito/10.2-cds-pricing-bootstrap.ipynb
+          do
+            echo "::group::$nb"
+            python -m jupyter nbconvert --to notebook --execute --stdout \
+              --ExecutePreprocessor.kernel_name=python3 \
+              --ExecutePreprocessor.timeout=900 \
+              "$nb" > /dev/null
+            echo "::endgroup::"
+          done

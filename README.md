@@ -1,5 +1,7 @@
 # Quant Finance Curriculum
 
+[![CI](https://github.com/Claudio911015/quant-finance-curriculum/actions/workflows/ci.yml/badge.svg)](https://github.com/Claudio911015/quant-finance-curriculum/actions/workflows/ci.yml)
+
 Currículum extenso de finanzas cuantitativas como colección de notebooks de Jupyter: teoría con derivaciones + implementación en Python desde cero + validación contra QuantLib. Doble uso: material de estudio riguroso y portfolio público en GitHub.
 
 ## Cómo correr
