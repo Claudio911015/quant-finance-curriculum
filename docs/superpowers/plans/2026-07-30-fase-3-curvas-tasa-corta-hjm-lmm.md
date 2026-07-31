@@ -359,7 +359,7 @@
 
 **Referencias:** Rebonato, R. (1999). *On the Simultaneous Calibration of Multifactor Lognormal Interest Rate Models to Black Volatilities and to the Correlation Matrix*. Journal of Computational Finance, 2(4), 5-27.; Brigo & Mercurio (2006) cap. 6-7.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.3 (calibración LMM: caplets y correlación)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.3 (calibración LMM: caplets y correlación)`
 
 ---
 
