@@ -191,7 +191,7 @@
 
 **Referencias:** Ho, T.S.Y. (1992). *Key Rate Durations: Measures of Interest Rate Risks*. Journal of Fixed Income, 2(2), 29-44.; Tuckman, B. & Serrat, A. (2011). *Fixed Income Securities*, 3rd ed., Wiley, cap. 5.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.5 (sensibilidades: DV01, KRD, jacobiano)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 5.5 (sensibilidades: DV01, KRD, jacobiano)`
 
 ---
 
