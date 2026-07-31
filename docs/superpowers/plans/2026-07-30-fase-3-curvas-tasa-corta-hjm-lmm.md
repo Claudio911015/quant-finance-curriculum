@@ -213,7 +213,7 @@
 
 **Referencias:** Vasicek, O. (1977). *An Equilibrium Characterization of the Term Structure*. Journal of Financial Economics, 5(2), 177-188.; Hull, J.C. & White, A. (1990). *Pricing Interest-Rate-Derivative Securities*. Review of Financial Studies, 3(4), 573-592.; Brigo, D. & Mercurio, F. (2006). *Interest Rate Models*, 2nd ed., Springer, cap. 3.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.1 (Vasicek y Hull-White)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.1 (Vasicek y Hull-White)`
 
 ---
 
