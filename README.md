@@ -108,7 +108,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 |---|---|---|
 | [09.1-garman-kohlhagen-vanna-volga.ipynb](notebooks/09-fx/09.1-garman-kohlhagen-vanna-volga.ipynb) | Garman-Kohlhagen, paridades, convenciones de smile (RR/BF), vanna-volga | ✅ |
 | [09.2-quantos-composites.ipynb](notebooks/09-fx/09.2-quantos-composites.ipynb) | Quantos y composites | ✅ |
-| [09.3-cross-currency-basis.ipynb](notebooks/09-fx/09.3-cross-currency-basis.ipynb) | Cross-currency basis y colateral multi-divisa | — |
+| [09.3-cross-currency-basis.ipynb](notebooks/09-fx/09.3-cross-currency-basis.ipynb) | Cross-currency basis y colateral multi-divisa | ✅ |
 
 ### M10 — Crédito
 
