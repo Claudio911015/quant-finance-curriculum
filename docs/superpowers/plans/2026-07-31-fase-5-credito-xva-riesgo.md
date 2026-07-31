@@ -240,7 +240,7 @@
 
 **Referencias:** Jorion, P. (2006), cap. 15-17 (stress testing). Hull, J. *Options, Futures, and Other Derivatives*, cap. sobre Greeks del portafolio y escenarios.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 12.3 (sensibilidades de portafolio y stress testing)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 12.3 (sensibilidades de portafolio y stress testing)`
 
 ---
 
