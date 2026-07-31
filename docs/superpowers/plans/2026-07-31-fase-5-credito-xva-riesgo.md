@@ -174,7 +174,7 @@
 
 **Referencias:** Gregory, J. (2015), cap. 9-10 (netting y colateral), cap. 6 (CSA). ISDA (2013). *Standard Credit Support Annex*.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.4 (netting, colateral y CSA)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 11.4 (netting, colateral y CSA)`
 
 ---
 
