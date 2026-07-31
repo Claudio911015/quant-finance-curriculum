@@ -196,7 +196,7 @@
 
 **Referencias:** Jorion, P. (2006). *Value at Risk: The New Benchmark for Managing Financial Risk*, 3rd ed. Artzner, P., Delbaen, F., Eber, J.M., Heath, D. (1999). *Coherent Measures of Risk*. Mathematical Finance, 9(3), 203-228.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 12.1 (VaR/ES: parametrico, historico, Monte Carlo)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 12.1 (VaR/ES: parametrico, historico, Monte Carlo)`
 
 ---
 
