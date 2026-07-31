@@ -132,5 +132,5 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | Notebook | Tema | Estado |
 |---|---|---|
 | [12.1-var-es.ipynb](notebooks/12-riesgo-mercado/12.1-var-es.ipynb) | VaR/ES: paramétrico, histórico, Monte Carlo | ✅ |
-| [12.2-backtesting-kupiec-christoffersen.ipynb](notebooks/12-riesgo-mercado/12.2-backtesting-kupiec-christoffersen.ipynb) | Backtesting: Kupiec, Christoffersen | — |
+| [12.2-backtesting-kupiec-christoffersen.ipynb](notebooks/12-riesgo-mercado/12.2-backtesting-kupiec-christoffersen.ipynb) | Backtesting: Kupiec, Christoffersen | ✅ |
 | [12.3-portfolio-sensitivities-stress-testing.ipynb](notebooks/12-riesgo-mercado/12.3-portfolio-sensitivities-stress-testing.ipynb) | Sensibilidades de portafolio, escenarios y stress testing | — |

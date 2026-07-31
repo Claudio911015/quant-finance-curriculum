@@ -218,7 +218,7 @@
 
 **Referencias:** Kupiec, P. (1995). *Techniques for Verifying the Accuracy of Risk Measurement Models*. Journal of Derivatives, 3(2), 73-84. Christoffersen, P. (1998). *Evaluating Interval Forecasts*. International Economic Review, 39(4), 841-862.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 12.2 (backtesting: Kupiec, Christoffersen)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 12.2 (backtesting: Kupiec, Christoffersen)`
 
 ---
 
