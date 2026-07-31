@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from scipy.stats import qmc
 
-from qflib.mc import gbm_paths, ou_paths, cir_paths, mc_estimate, normal_sampler
+from qflib.mc import gbm_paths, ou_paths, cir_paths, heston_paths, mc_estimate, normal_sampler
 
 
 # --- shapes ---
@@ -94,6 +94,37 @@ def test_cir_paths_feller_ok_mostly_positive():
     assert np.all(paths >= 0.0)
     # under Feller, essentially never truncated to exactly 0
     assert np.mean(paths == 0.0) < 0.001
+
+
+# --- Heston: full-truncation Euler ---
+
+def test_heston_paths_shape():
+    rng = np.random.default_rng(0)
+    S, v = heston_paths(100.0, 0.04, 1.5, 0.04, 0.5, -0.6, 0.03, 0.0, 1.0, 50, 10, rng)
+    assert S.shape == (10,)
+    assert v.shape == (10,)
+
+
+def test_heston_paths_starts_from_s0_v0_at_zero_steps_limit():
+    # with n_steps=1 and dt small (T tiny), S and v should stay close to S0, v0
+    rng = np.random.default_rng(0)
+    S, v = heston_paths(100.0, 0.04, 1.5, 0.04, 0.5, -0.6, 0.03, 0.0, 1e-6, 1, 5_000, rng)
+    assert np.allclose(S, 100.0, atol=0.5)
+    assert np.allclose(v, 0.04, atol=0.01)
+
+
+def test_heston_paths_variance_nonnegative():
+    rng = np.random.default_rng(7)
+    # Feller-violating params (xi large relative to kappa*theta) to actually exercise truncation
+    _, v = heston_paths(100.0, 0.04, 1.0, 0.04, 1.0, -0.7, 0.03, 0.0, 2.0, 200, 5_000, rng)
+    assert np.all(v >= 0.0)
+
+
+def test_heston_paths_feller_ok_mostly_positive():
+    rng = np.random.default_rng(7)
+    _, v = heston_paths(100.0, 0.04, 1.5, 0.04, 0.1, -0.6, 0.03, 0.0, 2.0, 200, 5_000, rng)
+    assert np.all(v >= 0.0)
+    assert np.mean(v == 0.0) < 0.001
 
 
 # --- mc_estimate ---

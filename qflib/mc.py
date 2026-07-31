@@ -75,6 +75,32 @@ def cir_paths(x0, kappa, theta, sigma, T, n_steps, n_paths, rng):
     return np.maximum(paths, 0.0)
 
 
+def heston_paths(S0, v0, kappa, theta, xi, rho, r, q, T, n_steps, n_paths, rng):
+    """Simulate Heston (1993) paths with the full-truncation Euler scheme for variance.
+
+    dS_t = S_t*((r-q)*dt + sqrt(v_t)*dW_t^S)
+    dv_t = kappa*(theta - v_t)*dt + xi*sqrt(v_t)*dW_t^v,  corr(dW^S, dW^v) = rho
+
+    Same full-truncation idea as cir_paths (Lord, Koekkoek & van Dijk, 2010): the drift
+    and diffusion coefficients of v use v^+ = max(v, 0), and both v and log S are stepped
+    with v^+ substituted wherever v appears under a square root.
+
+    Returns (S_T, v_T), each shape (n_paths,) -- only the terminal values, since option
+    pricing here only needs S_T (see notebooks/08-volatilidad/08.3-heston-model.ipynb).
+    """
+    dt = T / n_steps
+    chol = np.array([[1.0, 0.0], [rho, np.sqrt(1.0 - rho**2)]])
+    S = np.full(n_paths, S0, dtype=float)
+    v = np.full(n_paths, v0, dtype=float)
+    for _ in range(n_steps):
+        Z = rng.standard_normal((n_paths, 2))
+        dW = (Z @ chol.T) * np.sqrt(dt)
+        v_pos = np.maximum(v, 0.0)
+        S = S * np.exp((r - q - 0.5 * v_pos) * dt + np.sqrt(v_pos) * dW[:, 0])
+        v = v + kappa * (theta - v_pos) * dt + xi * np.sqrt(v_pos) * dW[:, 1]
+    return S, np.maximum(v, 0.0)
+
+
 def mc_estimate(payoffs, confidence=0.95):
     """Mean, standard error and confidence interval for an array of iid discounted payoffs.
 
