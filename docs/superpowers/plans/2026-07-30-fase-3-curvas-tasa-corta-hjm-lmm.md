@@ -271,7 +271,7 @@
 
 **Referencias:** Cox, J.C., Ingersoll, J.E. & Ross, S.A. (1985). *A Theory of the Term Structure of Interest Rates*. Econometrica, 53(2), 385-407.; Brigo, D. & Mercurio, F. (2001). *A Deterministic-Shift Extension of Analytically-Tractable and Time-Homogeneous Short-Rate Models*. Finance and Stochastics, 5(3), 369-387.; Brigo & Mercurio (2006) cap. 3.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.3 (CIR y CIR++)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.3 (CIR y CIR++)`
 
 ---
 
