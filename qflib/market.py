@@ -40,3 +40,29 @@ def par_swap_rate(curve_fn, payment_times):
     tau = np.diff(np.concatenate([[0.0], payment_times]))
     annuity = np.sum(tau * dfs)
     return (1.0 - dfs[-1]) / annuity
+
+
+def synthetic_cap_vols(strikes, tenors, base_vol=0.18, skew=-0.003, term_slope=-0.01, atm_ref=0.045):
+    """Synthetic Black cap-vol surface: base_vol + skew*(K-atm_ref)*100 + term_slope*log(tenor).
+
+    Mild skew and a downward-sloping term structure, coherent enough to be a plausible
+    cap-vol market. Returns a (len(tenors), len(strikes)) array of Black vols.
+    See notebooks/06-tasa-corta/06.2-hull-white-calibration-trinomial-tree.ipynb.
+    """
+    strikes = np.asarray(strikes, dtype=float)
+    tenors = np.asarray(tenors, dtype=float)
+    return (base_vol + skew * (strikes[None, :] - atm_ref) * 100.0
+            + term_slope * np.log(tenors)[:, None])
+
+
+def synthetic_swaption_vols(expiries, tenors, base_vol=0.18, expiry_slope=-0.015):
+    """Synthetic Black swaption-vol surface: base_vol + expiry_slope*log(expiry).
+
+    Returns a (len(expiries), len(tenors)) array of Black vols, constant across tenor
+    (the tenor dimension is kept for shape compatibility with a real swaption surface).
+    See notebooks/06-tasa-corta/06.2-hull-white-calibration-trinomial-tree.ipynb.
+    """
+    expiries = np.asarray(expiries, dtype=float)
+    tenors = np.asarray(tenors, dtype=float)
+    vols_by_expiry = base_vol + expiry_slope * np.log(expiries)
+    return np.tile(vols_by_expiry[:, None], (1, len(tenors)))

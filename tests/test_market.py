@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
-from qflib.market import nelson_siegel_zero, nelson_siegel_df, svi_total_variance, par_swap_rate
+from qflib.market import (nelson_siegel_zero, nelson_siegel_df, svi_total_variance, par_swap_rate,
+                           synthetic_cap_vols, synthetic_swaption_vols)
 
 
 def test_ns_zero_short_end_limit():
@@ -61,3 +62,38 @@ def test_par_swap_rate_flat_curve_recovers_annual_yield():
     # the annually-compounded equivalent of y, not y itself -- check against that, not y directly
     annual_equivalent = np.exp(y) - 1.0
     assert rate == pytest.approx(annual_equivalent, rel=1e-6)
+
+
+def test_synthetic_cap_vols_shape_and_positive():
+    strikes = np.array([0.03, 0.04, 0.045, 0.05, 0.06])
+    tenors = np.array([2.0, 5.0, 10.0])
+    vols = synthetic_cap_vols(strikes, tenors)
+    assert vols.shape == (len(tenors), len(strikes))
+    assert np.all(vols > 0.0)
+
+
+def test_synthetic_cap_vols_atm_equals_base_vol_at_reference_tenor():
+    strikes = np.array([0.03, 0.04, 0.045, 0.05, 0.06])
+    tenors = np.array([1.0, 5.0, 10.0])
+    base_vol = 0.18
+    vols = synthetic_cap_vols(strikes, tenors, base_vol=base_vol, atm_ref=0.045)
+    # at the reference tenor (term_slope*log(1)=0) and at K=atm_ref (skew term=0), vol == base_vol exactly
+    idx_atm = list(strikes).index(0.045)
+    assert vols[0, idx_atm] == pytest.approx(base_vol, abs=1e-12)
+
+
+def test_synthetic_swaption_vols_shape_and_positive():
+    expiries = np.array([1.0, 5.0, 10.0])
+    tenors = np.array([2.0, 5.0, 10.0])
+    vols = synthetic_swaption_vols(expiries, tenors)
+    assert vols.shape == (len(expiries), len(tenors))
+    assert np.all(vols > 0.0)
+
+
+def test_synthetic_swaption_vols_at_reference_expiry_equals_base_vol():
+    expiries = np.array([1.0, 5.0, 10.0])
+    tenors = np.array([2.0, 5.0, 10.0])
+    base_vol = 0.18
+    vols = synthetic_swaption_vols(expiries, tenors, base_vol=base_vol)
+    # expiry_slope*log(1) = 0 at the reference (1Y) expiry
+    assert np.all(vols[0, :] == pytest.approx(base_vol, abs=1e-12))
