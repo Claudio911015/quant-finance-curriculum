@@ -81,7 +81,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | [06.1-vasicek-hull-white.ipynb](notebooks/06-tasa-corta/06.1-vasicek-hull-white.ipynb) | Vasicek y Hull-White: precios de bono analíticos, fit exacto a la curva | ✅ |
 | [06.2-hull-white-calibration-trinomial-tree.ipynb](notebooks/06-tasa-corta/06.2-hull-white-calibration-trinomial-tree.ipynb) | Hull-White: calibración a caps/swaptions, árbol trinomial | ✅ |
 | [06.3-cir-cir-plus-plus.ipynb](notebooks/06-tasa-corta/06.3-cir-cir-plus-plus.ipynb) | CIR y CIR++ | ✅ |
-| [06.4-rate-exposure-simulation.ipynb](notebooks/06-tasa-corta/06.4-rate-exposure-simulation.ipynb) | Simulación de exposiciones de tasas (puente a XVA) | — |
+| [06.4-rate-exposure-simulation.ipynb](notebooks/06-tasa-corta/06.4-rate-exposure-simulation.ipynb) | Simulación de exposiciones de tasas (puente a XVA) | ✅ |
 
 ### M7 — HJM y LMM
 

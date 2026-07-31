@@ -293,7 +293,7 @@
 
 **Referencias:** Green, A. (2015). *XVA: Credit, Funding and Capital Valuation Adjustments*, Wiley, cap. 6 (definiciones de exposición). Gregory, J. (2015). *The xVA Challenge*, 3rd ed., Wiley, caps. 6-8.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.4 (simulación de exposiciones de tasas)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.4 (simulación de exposiciones de tasas)`
 
 ---
 
