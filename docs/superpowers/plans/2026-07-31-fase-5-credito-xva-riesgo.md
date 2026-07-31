@@ -42,7 +42,7 @@
 
 **Referencias:** Merton, R. (1974). *On the Pricing of Corporate Debt: The Risk Structure of Interest Rates*. Journal of Finance, 29(2), 449-470. Jarrow, R., Turnbull, S. (1995). *Pricing Derivatives on Financial Securities Subject to Credit Risk*. Journal of Finance, 50(1), 53-85.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 10.1 (Merton estructural y modelos de intensidad)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 10.1 (Merton estructural y modelos de intensidad)`
 
 ---
 
