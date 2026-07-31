@@ -246,10 +246,10 @@
 
 **Referencias:** Jamshidian, F. (1989). *An Exact Bond Option Formula*. Journal of Finance, 44(1), 205-209.; Hull, J.C. & White, A. (1994). *Numerical Procedures for Implementing Term Structure Models I: Single-Factor Models*. Journal of Derivatives, 2(1), 7-16.; Brigo & Mercurio (2006) caps. 3-4.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.2 (calibración Hull-White y árbol trinomial)`
-- [ ] Tests primero en `tests/test_market.py`: `synthetic_cap_vols`/`synthetic_swaption_vols` devuelven arrays con la forma pedida, todos los valores `>0`, y el vol ATM (strike = tasa par) es exactamente `base_vol` en el primer tenor/expiry (por construcción de la fórmula)
-- [ ] Implementar en `qflib/market.py`; `pytest tests/ -v` verde
-- [ ] Commit separado `feat: qflib.market (superficies sinteticas de cap y swaption vols)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 6.2 (calibración Hull-White y árbol trinomial)`
+- [x] Tests primero en `tests/test_market.py`: `synthetic_cap_vols`/`synthetic_swaption_vols` devuelven arrays con la forma pedida, todos los valores `>0`, y el vol ATM (strike = tasa par) es exactamente `base_vol` en el primer tenor/expiry (por construcción de la fórmula)
+- [x] Implementar en `qflib/market.py`; `pytest tests/ -v` verde
+- [x] Commit separado `feat: qflib.market (superficies sinteticas de cap y swaption vols)`
 
 ---
 
