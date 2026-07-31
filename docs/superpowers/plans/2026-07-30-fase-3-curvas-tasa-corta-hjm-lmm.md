@@ -337,7 +337,7 @@
 
 **Referencias:** Brace, A., Gatarek, D. & Musiela, M. (1997). *The Market Model of Interest Rate Dynamics*. Mathematical Finance, 7(2), 127-155.; Jamshidian, F. (1997). *LIBOR and Swap Market Models and Measures*. Finance and Stochastics, 1(4), 293-330.; Brigo & Mercurio (2006) cap. 6.
 
-- [ ] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.2 (dinámica de forwards en LMM)`
+- [x] Escribir notebook / ejecutar / READMEs / commit `feat: notebook 7.2 (dinámica de forwards en LMM)`
 
 ---
 

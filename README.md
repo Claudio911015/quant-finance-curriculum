@@ -88,7 +88,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | Notebook | Tema | Estado |
 |---|---|---|
 | [07.1-hjm-framework-drift-condition.ipynb](notebooks/07-hjm-lmm/07.1-hjm-framework-drift-condition.ipynb) | Marco HJM y condición de drift | ✅ |
-| [07.2-lmm-forward-dynamics.ipynb](notebooks/07-hjm-lmm/07.2-lmm-forward-dynamics.ipynb) | LMM: dinámica de forwards, drifts bajo spot/terminal measure | — |
+| [07.2-lmm-forward-dynamics.ipynb](notebooks/07-hjm-lmm/07.2-lmm-forward-dynamics.ipynb) | LMM: dinámica de forwards, drifts bajo spot/terminal measure | ✅ |
 | [07.3-lmm-calibration-correlation.ipynb](notebooks/07-hjm-lmm/07.3-lmm-calibration-correlation.ipynb) | Calibración a caplets/swaptions, estructura de correlación | — |
 | [07.4-lmm-simulation-bermudan-swaption.ipynb](notebooks/07-hjm-lmm/07.4-lmm-simulation-bermudan-swaption.ipynb) | Simulación LMM y Bermudan swaption vía Longstaff-Schwartz | — |
 
