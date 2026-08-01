@@ -17,7 +17,7 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: |
-          pip install numpy scipy pandas matplotlib QuantLib pytest
+          pip install -r requirements-lock.txt
           pip install -e .
       - name: Run test suite
         run: pytest tests/ -v
@@ -33,8 +33,9 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: |
-          pip install numpy scipy pandas matplotlib QuantLib jupyter nbconvert ipykernel
+          pip install -r requirements-lock.txt
           pip install -e .
+          python -m ipykernel install --user --name python3
       # Subconjunto representativo (uno por fase, ejecucion rapida); cada notebook
       # trae sus propios asserts de validacion, asi que ejecutar = validar.
       - name: Execute smoke-test notebooks

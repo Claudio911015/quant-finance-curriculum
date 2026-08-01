@@ -1,3 +1,10 @@
+# Entorno conda para el currículum.
+#
+#   conda env create -f environment.yml
+#   conda activate qfcurriculum
+#
+# Deja las versiones sin fijar a propósito: para el conjunto exacto verificado
+# usar `pip install -r requirements-lock.txt` dentro del entorno.
 name: qfcurriculum
 channels:
   - conda-forge
@@ -5,7 +12,6 @@ dependencies:
   - python=3.12
   - numpy
   - scipy
-  - pandas
   - matplotlib
   - jupyter
   - pytest

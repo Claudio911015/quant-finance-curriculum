@@ -14,6 +14,30 @@ jupyter lab
 
 Este procedimiento también instala `qflib` en modo editable. Para actualizar un ambiente existente, ejecutar `conda env update -f environment.yml --prune`.
 
+### Dependencias exactas
+
+`environment.yml` no fija versiones. Para reproducir el entorno **exacto** con el que se verificaron los 56 notebooks y los 96 tests:
+
+```bash
+pip install -r requirements-lock.txt
+pip install -e .
+```
+
+Es lo que instala el CI, así que si el CI está en verde ese conjunto funciona. Al subir alguna versión conviene reejecutar los notebooks antes de fijarla en el lock: cada notebook trae sus propios asserts de validación, así que ejecutarlos es la prueba de que el stack sigue sano.
+
+Sin conda, con pip a secas:
+
+```bash
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install -r requirements-lock.txt
+pip install -e .
+python -m ipykernel install --user --name qfcurriculum
+```
+
+El último paso registra el kernel del entorno. Sin él, Jupyter usa el kernelspec `python3` del sistema y los notebooks fallan con `ModuleNotFoundError: qflib` aunque la instalación esté bien.
+
+Para resolver solo cotas inferiores (sin fijar versiones), `pip install -e ".[quantlib,dev,notebooks]"` — pero eso no es el conjunto verificado.
+
 ## Currículum
 
 13 módulos, progresión lineal (cada módulo asume los anteriores).

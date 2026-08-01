@@ -6,6 +6,25 @@ build-backend = "setuptools.build_meta"
 name = "qflib"
 version = "0.0.1"
 description = "Quant Finance Curriculum Library"
+requires-python = ">=3.12"
+
+# Lo que qflib necesita para importarse y correr sus tests.
+# Son cotas inferiores razonables, NO el conjunto verificado: para reproducir
+# exactamente el entorno con el que se ejecutaron los 56 notebooks, usar
+# requirements-lock.txt.
+dependencies = [
+    "numpy>=1.26",   # ver requirements-lock.txt: el conjunto verificado usa numpy 2.5.1 (exige Python 3.12+)
+    "scipy>=1.11",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+# Validación cruzada contra QuantLib (M8, M9, M10 la usan).
+quantlib = ["QuantLib>=1.34"]
+# Correr la suite de tests.
+dev = ["pytest>=8.0"]
+# Ejecutar los notebooks.
+notebooks = ["jupyter>=1.0", "nbconvert>=7.0", "nbformat>=5.9", "ipykernel>=6.29"]
 
 [tool.setuptools]
 packages = ["qflib"]
