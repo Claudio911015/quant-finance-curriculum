@@ -15,6 +15,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-lock.txt
       - name: Install dependencies
         run: |
           pip install -r requirements-lock.txt
@@ -22,36 +23,58 @@ jobs:
       - name: Run test suite
         run: pytest tests/ -v
 
-  notebook-smoke:
-    name: notebook smoke test (nbconvert --execute)
+  notebooks:
+    # Un job por modulo, en paralelo: el reloj lo marca el modulo mas lento,
+    # no la suma de los 56 notebooks. fail-fast off para ver TODOS los modulos
+    # que fallan en una sola corrida, no solo el primero.
+    name: ${{ matrix.module }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        module:
+          - 00-probabilidad
+          - 01-procesos-estocasticos
+          - 02-tiempo-discreto
+          - 03-tiempo-continuo
+          - 04-metodos-numericos
+          - 05-curvas
+          - 06-tasa-corta
+          - 07-hjm-lmm
+          - 08-volatilidad
+          - 09-fx
+          - 10-credito
+          - 11-xva
+          - 12-riesgo-mercado
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-lock.txt
       - name: Install dependencies
         run: |
           pip install -r requirements-lock.txt
           pip install -e .
           python -m ipykernel install --user --name python3
-      # Subconjunto representativo (uno por fase, ejecucion rapida); cada notebook
-      # trae sus propios asserts de validacion, asi que ejecutar = validar.
-      - name: Execute smoke-test notebooks
+      # Cada notebook trae sus propios asserts de validacion, asi que
+      # ejecutarlo ES validarlo: si un assert falla, nbconvert sale con error.
+      - name: Execute notebooks
         run: |
-          for nb in \
-            notebooks/00-probabilidad/00.2-conditional-expectation-martingales.ipynb \
-            notebooks/02-tiempo-discreto/02.1-one-period-model.ipynb \
-            notebooks/05-curvas/05.2-single-curve-bootstrapping.ipynb \
-            notebooks/06-tasa-corta/06.3-cir-cir-plus-plus.ipynb \
-            notebooks/08-volatilidad/08.4-sabr-model.ipynb \
-            notebooks/10-credito/10.2-cds-pricing-bootstrap.ipynb
-          do
+          status=0
+          for nb in notebooks/${{ matrix.module }}/*.ipynb; do
             echo "::group::$nb"
-            python -m jupyter nbconvert --to notebook --execute --stdout \
-              --ExecutePreprocessor.kernel_name=python3 \
-              --ExecutePreprocessor.timeout=900 \
-              "$nb" > /dev/null
+            if python -m jupyter nbconvert --to notebook --execute --stdout \
+                 --ExecutePreprocessor.kernel_name=python3 \
+                 --ExecutePreprocessor.timeout=600 \
+                 "$nb" > /dev/null; then
+              echo "OK $nb"
+            else
+              echo "::error file=$nb::fallo la ejecucion o un assert de validacion"
+              status=1
+            fi
             echo "::endgroup::"
           done
+          exit $status
