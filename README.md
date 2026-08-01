@@ -75,6 +75,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | [05.3-multi-curve-ois-discounting.ipynb](notebooks/05-curvas/05.3-multi-curve-ois-discounting.ipynb) | Multi-curva: OIS discounting, basis, curva de proyección vs descuento | ✅ |
 | [05.4-interpolation-methods.ipynb](notebooks/05-curvas/05.4-interpolation-methods.ipynb) | Interpolación (log-discount lineal, splines, monotone convex) y su impacto en forwards | ✅ |
 | [05.5-sensitivities-dv01-krd.ipynb](notebooks/05-curvas/05.5-sensitivities-dv01-krd.ipynb) | Sensibilidades: DV01, key-rate durations, jacobiano de calibración | ✅ |
+| [05.6-pca-yield-curve.ipynb](notebooks/05-curvas/05.6-pca-yield-curve.ipynb) | PCA de la curva: nivel, pendiente y curvatura; sensibilidades por factor y escenarios de estrés | ✅ |
 
 ### M6 — Modelos de tasa corta
 
@@ -103,6 +104,7 @@ Este procedimiento también instala `qflib` en modo editable. Para actualizar un
 | [08.3-heston-model.ipynb](notebooks/08-volatilidad/08.3-heston-model.ipynb) | Heston: pricing por función característica, calibración a superficie | ✅ |
 | [08.4-sabr-model.ipynb](notebooks/08-volatilidad/08.4-sabr-model.ipynb) | SABR: aproximación de Hagan, calibración al smile de swaptions | ✅ |
 | [08.5-rough-volatility.ipynb](notebooks/08-volatilidad/08.5-rough-volatility.ipynb) | Rough volatility (panorama) y varianza forward | ✅ |
+| [08.6-jump-diffusion.ipynb](notebooks/08-volatilidad/08.6-jump-diffusion.ipynb) | Difusión con saltos: Merton (fórmula cerrada y Fourier), skew de corto plazo, panorama SVJ/Bates | ✅ |
 
 ### M9 — FX
 
