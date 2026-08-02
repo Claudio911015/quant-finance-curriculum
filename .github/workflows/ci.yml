@@ -6,6 +6,21 @@ on:
   pull_request:
 
 jobs:
+  lint:
+    name: lint (calidad de notebooks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Chequeos estaticos: no ejecuta notebooks, tarda segundos.
+      # Cubre asserts tautologicos, factores de ajuste sin derivar, encabezados
+      # sin prosa, notebooks sin validacion, enlaces rotos del README y
+      # coherencia entre el lock y pyproject.
+      - name: Lint
+        run: python tools/lint_notebooks.py
+
   tests:
     name: pytest (qflib)
     runs-on: ubuntu-latest
@@ -59,20 +74,20 @@ jobs:
           pip install -r requirements-lock.txt
           pip install -e .
           python -m ipykernel install --user --name python3
-      # Cada notebook trae sus propios asserts de validacion, asi que
-      # ejecutarlo ES validarlo: si un assert falla, nbconvert sale con error.
-      - name: Execute notebooks
+      # Cada notebook trae sus propios asserts, asi que ejecutarlo ES validarlo.
+      # check_outputs_fresh.py ademas compara las salidas de texto frescas contra
+      # las comprometidas: detecta notebooks cuyos numeros publicados en GitHub
+      # ya no son los que produce el codigo. Ejecuta una sola vez, asi que este
+      # chequeo extra no cuesta tiempo adicional.
+      - name: Execute notebooks and check committed outputs
         run: |
           status=0
           for nb in notebooks/${{ matrix.module }}/*.ipynb; do
             echo "::group::$nb"
-            if python -m jupyter nbconvert --to notebook --execute --stdout \
-                 --ExecutePreprocessor.kernel_name=python3 \
-                 --ExecutePreprocessor.timeout=600 \
-                 "$nb" > /dev/null; then
-              echo "OK $nb"
+            if python tools/check_outputs_fresh.py "$nb"; then
+              :
             else
-              echo "::error file=$nb::fallo la ejecucion o un assert de validacion"
+              echo "::error file=$nb::fallo un assert de validacion, o las salidas comprometidas estan rancias"
               status=1
             fi
             echo "::endgroup::"
