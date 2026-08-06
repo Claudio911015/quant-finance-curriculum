@@ -162,3 +162,10 @@ Para resolver solo cotas inferiores (sin fijar versiones), `pip install -e ".[qu
 | [12.1-var-es.ipynb](notebooks/12-riesgo-mercado/12.1-var-es.ipynb) | VaR/ES: paramétrico, histórico, Monte Carlo | ✅ |
 | [12.2-backtesting-kupiec-christoffersen.ipynb](notebooks/12-riesgo-mercado/12.2-backtesting-kupiec-christoffersen.ipynb) | Backtesting: Kupiec, Christoffersen | ✅ |
 | [12.3-portfolio-sensitivities-stress-testing.ipynb](notebooks/12-riesgo-mercado/12.3-portfolio-sensitivities-stress-testing.ipynb) | Sensibilidades de portafolio, escenarios y stress testing | ✅ |
+
+### M13 — SOFR
+
+| Notebook | Tema | Estado |
+|---|---|---|
+| [13.1-institutional-context.ipynb](notebooks/13-sofr/13.1-institutional-context.ipynb) | Construcción del índice, reforma LIBOR→SOFR, big bang de descuento, fallbacks ISDA, CME Term SOFR, estacionalidad | ✅ |
+| 13.2-accrual-conventions.ipynb | Convenciones de devengo (lookback/lockout/shift/cutoff) y comparación contra el SOFR Average real del NY Fed | ⬜ |
