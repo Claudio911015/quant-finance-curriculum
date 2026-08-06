@@ -7,10 +7,9 @@ NY Fed.
 """
 import bisect
 from datetime import date
-from typing import List
 
 
-def _shift_business_days(dates: List[date], d: date, n: int) -> date:
+def _shift_business_days(dates: list[date], d: date, n: int) -> date:
     """Fecha `n` días hábiles antes (n<0) o después (n>0) de `d`, según `dates`."""
     i = bisect.bisect_left(dates, d)
     j = i + n
@@ -21,7 +20,7 @@ def _shift_business_days(dates: List[date], d: date, n: int) -> date:
     return dates[j]
 
 
-def _calendar_weights(dates: List[date], idx: List[int], window_end: date) -> List[int]:
+def _calendar_weights(dates: list[date], idx: list[int], window_end: date) -> list[int]:
     weights = []
     for k, i in enumerate(idx):
         nxt = dates[idx[k + 1]] if k + 1 < len(idx) else window_end
@@ -30,8 +29,8 @@ def _calendar_weights(dates: List[date], idx: List[int], window_end: date) -> Li
 
 
 def compound_sofr(
-    dates: List[date],
-    rates: List[float],
+    dates: list[date],
+    rates: list[float],
     period_start: date,
     period_end: date,
     lookback: int = 0,
