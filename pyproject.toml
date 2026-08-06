@@ -16,6 +16,7 @@ dependencies = [
     "numpy>=1.26",   # ver requirements-lock.txt: el conjunto verificado usa numpy 2.5.1 (exige Python 3.12+)
     "scipy>=1.11",
     "matplotlib>=3.8",
+    "requests>=2.32",
 ]
 
 [project.optional-dependencies]
@@ -28,3 +29,6 @@ notebooks = ["jupyter>=1.0", "nbconvert>=7.0", "nbformat>=5.9", "ipykernel>=6.29
 
 [tool.setuptools]
 packages = ["qflib"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
