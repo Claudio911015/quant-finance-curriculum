@@ -1,8 +1,12 @@
-from datetime import date
+import csv
+from datetime import date, timedelta
+from pathlib import Path
 
 import pytest
 
 from qflib.sofr import compound_sofr
+
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 # Dos semanas hábiles sintéticas: semana 1 al 5%, semana 2 al 6% flat.
 # Viernes cubre 3 días calendario (sáb+dom+el propio), el resto 1.
@@ -75,3 +79,31 @@ def test_rate_cutoff_usa_el_mismo_mecanismo_que_lockout():
 def test_shift_fuera_de_rango_de_dates_lanza_error():
     with pytest.raises(ValueError, match="fuera del rango"):
         compound_sofr(DATES, RATES, date(2026, 1, 5), date(2026, 1, 12), lookback=10)
+
+
+def _latest_snapshot(prefix: str) -> Path:
+    candidates = sorted(DATA_DIR.glob(f"{prefix}_*.csv"))
+    assert candidates, f"no hay snapshot {prefix}_*.csv en data/ — correr tools/fetch_sofr_data.py"
+    return candidates[-1]
+
+
+def test_compuesto_base_90d_coincide_con_sofr_average_publicado():
+    sofr_path = _latest_snapshot("sofr")
+    sofrai_path = _latest_snapshot("sofrai")
+
+    with sofr_path.open() as f:
+        rows = list(csv.DictReader(f))
+    sofr_dates = [date.fromisoformat(r["date"]) for r in rows]
+    sofr_rates = [float(r["sofr"]) for r in rows]
+
+    with sofrai_path.open() as f:
+        sofrai_rows = {date.fromisoformat(r["date"]): r for r in csv.DictReader(f)}
+
+    # period_end = 5 días hábiles antes del último dato del snapshot, para
+    # tener margen y evitar el borde exacto de la serie descargada.
+    period_end = sofr_dates[-6]
+    period_start = period_end - timedelta(days=90)
+    published = float(sofrai_rows[period_end]["average_90d"])
+
+    r_base = compound_sofr(sofr_dates, sofr_rates, period_start, period_end)
+    assert r_base == pytest.approx(published, abs=5e-5)

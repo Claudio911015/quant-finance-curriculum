@@ -168,4 +168,4 @@ Para resolver solo cotas inferiores (sin fijar versiones), `pip install -e ".[qu
 | Notebook | Tema | Estado |
 |---|---|---|
 | [13.1-institutional-context.ipynb](notebooks/13-sofr/13.1-institutional-context.ipynb) | Construcción del índice, reforma LIBOR→SOFR, big bang de descuento, fallbacks ISDA, CME Term SOFR, estacionalidad | ✅ |
-| 13.2-accrual-conventions.ipynb | Convenciones de devengo (lookback/lockout/shift/cutoff) y comparación contra el SOFR Average real del NY Fed | ⬜ |
+| [13.2-accrual-conventions.ipynb](notebooks/13-sofr/13.2-accrual-conventions.ipynb) | Convenciones de devengo (lookback/lockout/shift/cutoff) y comparación contra el SOFR Average real del NY Fed | ✅ |
